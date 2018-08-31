@@ -18,11 +18,10 @@ class Search
 
     /**
      * Search constructor.
-     * @param Requester $requester
      */
-    public function __construct(Requester $requester)
+    public function __construct()
     {
-        $this->requester = $requester;
+        $this->requester = new Requester();
     }
 
     /**

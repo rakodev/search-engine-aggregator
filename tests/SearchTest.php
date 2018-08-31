@@ -18,7 +18,7 @@ class SearchTest extends \PHPUnit_Framework_TestCase
     public function setUp()
     {
         parent::setUp();
-        $this->search = new Search(new Requester());
+        $this->search = new Search();
     }
 
     public function testSetAndGetQueryString()
@@ -62,18 +62,14 @@ class SearchTest extends \PHPUnit_Framework_TestCase
 
     public function testGetContent()
     {
-        $requester = new Requester();
-
-        $search = new Search($requester);
-
-        $search->setQueryString('PHP');
-        $result = $search->getContent();
+        $this->search->setQueryString('PHP');
+        $result = $this->search->getContent();
 
         $this->assertInternalType('array', $result);
         $this->assertNotEmpty($result);
 
-        $search->setQueryString('');
-        $result = $search->getContent();
+        $this->search->setQueryString('');
+        $result = $this->search->getContent();
 
         $this->assertInternalType('array', $result);
         $this->assertEmpty($result);

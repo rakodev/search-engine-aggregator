@@ -21,8 +21,7 @@ Then create an index.php file that will load the autoloader
 Usage
 -------
 ```php
-$requester = new Requester();
-$search = new Search($requester);
+$search = new Search();
 $search->setQueryString('PHP');
 $result = $search->getContent();
 ```
